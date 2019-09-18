@@ -5,6 +5,7 @@ the home assistant blueprint application
 from mindmeld.ser import get_candidates_for_text
 
 from .root import app
+from chuck_core import se_handler
 
 
 DEFAULT_THERMOSTAT_TEMPERATURE = 72
@@ -53,13 +54,10 @@ def specify_location(request, responder):
                 reply = _handle_appliance_reply(selected_all, selected_location, selected_appliance,
                                                 desired_state="off")
         except KeyError:
-            # do the lgic
             reply = "Please specify an action to go along with that location."
-
-        responder.reply(reply)
     else:
         reply = "I'm sorry, I wasn't able to recognize that location, could you try again?"
-        responder.reply(reply)
+    responder.reply(reply)
 
 
 @app.handle(intent='check_door')
@@ -159,6 +157,7 @@ def set_thermostat(request, responder):
     thermostat_temperature_dict[selected_location] = selected_temperature
     reply = _handle_thermostat_change_reply(selected_location,
                                             desired_temperature=selected_temperature)
+    se_handler.thermostat_control()
     responder.reply(reply)
 
 
@@ -177,6 +176,7 @@ def change_thermostat(request, responder):
                                   responder, desired_direction)
 
     reply = _handle_thermostat_change_reply(selected_location, desired_temperature=new_temp)
+    se_handler.thermostat_control('test', new_temp)
     responder.reply(reply)
 
 
@@ -245,6 +245,10 @@ def _handle_lights(request, responder, desired_state, desired_action):
     if selected_all or selected_location:
         reply = _handle_lights_reply(
             selected_all, selected_location, responder, desired_state=desired_state, color=color)
+
+        desired_state_bool = 0 if desired_state == 'off' else 1
+        #se_handler.thermostat_control(selected_location, desired_state_bool)
+        se_handler.thermostat_control('test', desired_state_bool)
         responder.reply(reply)
     else:
         responder.frame['desired_action'] = desired_action

@@ -9,5 +9,6 @@ import office_assistant.unknown
 import office_assistant.weather  # noqa: ignore=F401
 import office_assistant.easter_egg
 import office_assistant.presentation
+import office_assistant.room_search
 
 __all__ = ['app']
