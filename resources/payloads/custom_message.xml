@@ -1,0 +1,5 @@
+<Configuration>
+	<UserInterface>
+		<CustomMessage>I am webex assistant!</CustomMessage>
+	</UserInterface>
+</Configuration>
