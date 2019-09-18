@@ -28,7 +28,6 @@ def default_handler(request, response):
     	</SystemUnit>
         </Command>
         """
-
     headers = {
         'Content-Type': "text/xml",
         'Authorization': "Basic YWRtaW46Y2lzY29wc2R0",
