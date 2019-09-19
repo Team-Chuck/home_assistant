@@ -8,9 +8,9 @@ from .root import app
 from chuck_core import se_handler
 
 
-DEFAULT_THERMOSTAT_TEMPERATURE = 72
+DEFAULT_THERMOSTAT_TEMPERATURE = 26
 DEFAULT_THERMOSTAT_CHANGE = 1
-DEFAULT_THERMOSTAT_LOCATION = 'home'
+DEFAULT_THERMOSTAT_LOCATION = 'room 1'
 
 DEFAULT_HOUSE_LOCATION = None
 
@@ -40,9 +40,11 @@ def specify_location(request, responder):
                 color = _get_color(request) or request.frame.get('desired_color')
                 reply = _handle_lights_reply(selected_all, selected_location, responder,
                                              desired_state="on", color=color)
+                se_handler.lights_control('test', 1)
             elif request.frame['desired_action'] == 'Turn Off Lights':
                 reply = _handle_lights_reply(selected_all, selected_location, responder,
                                              desired_state="off")
+                se_handler.lights_control('test', 0)
             elif request.frame['desired_action'] == 'Check Lights':
                 reply = _handle_check_lights_reply(selected_location, responder)
             elif request.frame['desired_action'] == 'Turn On Appliance':
@@ -58,6 +60,7 @@ def specify_location(request, responder):
     else:
         reply = "I'm sorry, I wasn't able to recognize that location, could you try again?"
     responder.reply(reply)
+    responder.sleep()
 
 
 @app.handle(intent='check_door')
@@ -138,7 +141,7 @@ def check_thermostat(request, responder):
         current_temp = DEFAULT_THERMOSTAT_TEMPERATURE
         responder.frame['thermostat_temperatures'] = {selected_location: current_temp}
 
-    reply = "Current thermostat temperature in the {location} is {temp} degrees F.".format(
+    reply = "Current thermostat temperature in the {location} is {temp} degrees C.".format(
         location=selected_location.lower(), temp=current_temp)
     responder.reply(reply)
 
@@ -157,8 +160,9 @@ def set_thermostat(request, responder):
     thermostat_temperature_dict[selected_location] = selected_temperature
     reply = _handle_thermostat_change_reply(selected_location,
                                             desired_temperature=selected_temperature)
-    se_handler.thermostat_control()
+    se_handler.thermostat_control('test', int(selected_temperature))
     responder.reply(reply)
+    responder.sleep()
 
 
 @app.handle(intent='turn_up_thermostat')
@@ -176,8 +180,9 @@ def change_thermostat(request, responder):
                                   responder, desired_direction)
 
     reply = _handle_thermostat_change_reply(selected_location, desired_temperature=new_temp)
-    se_handler.thermostat_control('test', new_temp)
+    se_handler.thermostat_control('test', int(new_temp))
     responder.reply(reply)
+    responder.sleeep()
 
 
 @app.handle(intent='turn_off_thermostat')
@@ -191,6 +196,7 @@ def turn_off_thermostat(request, responder):
     selected_location = _get_thermostat_location(request)
     reply = _handle_thermostat_change_reply(selected_location, desired_state=desired_state)
     responder.reply(reply)
+    responder.sleep()
 
 
 # Helpers
@@ -247,9 +253,9 @@ def _handle_lights(request, responder, desired_state, desired_action):
             selected_all, selected_location, responder, desired_state=desired_state, color=color)
 
         desired_state_bool = 0 if desired_state == 'off' else 1
-        #se_handler.thermostat_control(selected_location, desired_state_bool)
-        se_handler.thermostat_control('test', desired_state_bool)
+        se_handler.lights_control('test', desired_state_bool)
         responder.reply(reply)
+        responder.sleep()
     else:
         responder.frame['desired_action'] = desired_action
         responder.frame['desired_color'] = color
