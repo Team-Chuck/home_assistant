@@ -3,35 +3,35 @@ turn the lights to {blue|color}
 turn lights on now
 i need the lights to be on in the {whole house|all}
 turn on {hallway|location} light
-switch on {second room|location} lights
+switch on {room B|location} lights
 lights on
-lights on in the {second room|location}
+lights on in the {room B|location}
 let there be light
 activate {outside|location} lights
 need {hall|location} light on
 can you turn on the {porch|location} light
-lights on in the {third room|location} only
+lights on in the {room C|location} only
 lights on in the {whole house|all}
 may you turn on the lights
 turn on lights
-turn on the {second room|location} light
+turn on the {room B|location} light
 turn on {corridor|location} lights
 give me a light in here
 keep the {hallway|location} lights on
 turn the light in the {hallway|location} on
-lights on in the {second room|location}
+lights on in the {room B|location}
 switch on {all|all} lights
 turn on lights
-turn the lights on in the {forth room|location}
+turn the lights on in the {room D|location}
 turn on the {basement|location} lights
-can i get some light in the {second room|location}
+can i get some light in the {room B|location}
 lights on in the house
 {all|all} lights on
 turn on light in front {hallway|location}
 house can you please turn on the lights
 turn {all|all} lights on
 turn on {porch|location} light
-turn on {second room|location} lights
+turn on {room B|location} lights
 {basement|location} lights on
 {all|all} lights on now immediately
 {hallway|location} light on please
@@ -39,22 +39,22 @@ turn on {second room|location} lights
 house lights on
 turn lights on
 turn on the light in the {entryway|location}
-{third room|location} lights on
-lights on in the {first room|location}
-{third room|location} lights on
+{room C|location} lights on
+lights on in the {room A|location}
+{room C|location} lights on
 lights on here
 turn on {all|all} lights
-turn on the {first room|location} light
-turn on the lights in the {third room|location}
+turn on the {room A|location} light
+turn on the lights in the {room C|location}
 turn on the {hall|location} lights
 lights please
-turn on the {third room|location} lights
-can you turn on the lights in the {third room|location}
+turn on the {room C|location} lights
+can you turn on the lights in the {room C|location}
 flick on a light
 turn on the lights in the {master bedroom|location}
-light on in the {first room|location}
-lights on in the {forth room|location}
-switch on the {forth room|location} lights
+light on in the {room A|location}
+lights on in the {room D|location}
+switch on the {room D|location} lights
 switch on the light
 turn on {hall|location} lights
 turn on the light in {guest bedroom|location}
@@ -65,106 +65,106 @@ lights on
 activate {hall|location} light
 {all|all} lights wake up
 turn on the {porch|location} light
-turn on the {third room|location} light
+turn on the {room C|location} light
 turn on the lights ASAP
-i can t see inside the {first room|location}
+i can t see inside the {room A|location}
 turn on the lights
 turn on the {garage|location} light
-lights on in {first room|location}
-turn on {forth room|location} lights
+lights on in {room A|location}
+turn on {room D|location} lights
 turn on the {back|location} {porch|location} light
 can you put on the light in the {family room|location}
 turn on lights
-turn on the light in the {second room|location}
+turn on the light in the {room B|location}
 turn on light
-turn on {third room|location} lights
-turn on the {third room|location} lights
+turn on {room C|location} lights
+turn on the {room C|location} lights
 lights on {everywhere|all}
 flip the lights on
-{second room|location} lights on
-switch the light in the {first room|location} on
-turn the {second room|location} light on
+{room B|location} lights on
+switch the light in the {room A|location} on
+turn the {room B|location} light on
 turn on the lights
 light up the {closet|location} for me
 lights on
 please turn on the {exterior|location} lights
 lights on in the {dining room|location}
 lights on {all|all} room
-can you turn on the light in the {upstairs|location} {first room|location}
-switch on {third room|location} lights
-illuminate {forth room|location}
+can you turn on the light in the {upstairs|location} {room A|location}
+switch on {room C|location} lights
+illuminate {room D|location}
 please turn on the lights in the {basement|location}
-{third room|location} lights on please
-turn on {first room|location} light
+{room C|location} lights on please
+turn on {room A|location} light
 {hall|location} lights on
-please put on the {first room|location} light
+please put on the {room A|location} light
 turn lights on
 bring up the lights
 please turn on the lights
 {garage|location} light on
 lights on
-light the {forth room|location}
+light the {room D|location}
 turn on lights {everywhere|all}
-turn the {third room|location} lights on
-turn on {second room|location} light please
+turn the {room C|location} lights on
+turn on {room B|location} light please
 turn on {all|all} the house lights
-{second room|location} lights on
+{room B|location} lights on
 lights on in here
-lights in the {third room|location}
+lights in the {room C|location}
 switch {all|all} lights on
 turn on lights in here
-{first room|location} light on please
+{room A|location} light on please
 flip on the lights in my room
 turn on {downstairs|location} lights
-lights on in the {first room|location}
-turn the {forth room|location} lights on
+lights on in the {room A|location}
+turn the {room D|location} lights on
 {all|all} lights on
 turn on {all|all} the lights
 will you please turn on the lights
 smart home turn the lights on
 turn on {all|all} lights in {all|all} rooms
 lights on in the {nursery|location}
-turn on {third room|location} light
-turn on the light in the {first room|location}
+turn on {room C|location} light
+turn on the light in the {room A|location}
 {porch|location} lights on
-please switch the lights on in the {third room|location}
+please switch the lights on in the {room C|location}
 get the {hallway|location} lights on
-let's have some light in the {forth room|location}
+let's have some light in the {room D|location}
 turn on {all|all} lights
-{forth room|location} lights on
+{room D|location} lights on
 turn {all|all} the lights on
 i want {all|all} lights on
 i need the lights on
 please turn the lights in this room on
-please turn on the {second room|location} lights
+please turn on the {room B|location} lights
 turn on the light on the {front|location} {porch|location}
 turn on the {garage|location} light
 turn on a light if you would please
 lights on in the {basement|location}
 turn the lights on
 illuminate the front {porch|location}
-turn the {second room|location} lights on
-turn {forth room|location} lights on
-turn on the {first room|location} light
+turn the {room B|location} lights on
+turn {room D|location} lights on
+turn on the {room A|location} light
 please turn on the lights
-please turn on the {third room|location} light
+please turn on the {room C|location} light
 {backyard|location} lights on now
-turn on the lights in the {forth room|location}
+turn on the lights in the {room D|location}
 turn the lights on
-turn on the lights in the {downstairs|location} {second room|location}
+turn on the lights in the {downstairs|location} {room B|location}
 turn the lights on {upstairs|location}
 turn on {all|all} lights please
 turn on the {outside|location} light
 lights on
 turn {all|all} the lights on
-light on in {third room|location}
-turn on {first room|location} lights
+light on in {room C|location}
+turn on {room A|location} lights
 let there be light
 activate lights in {guest room|location}
 turn on the lights in the {garage|location}
-turn the {second room|location} light on for a minute
-{forth room|location} lights
-switch on {forth room|location} lights
+turn the {room B|location} light on for a minute
+{room D|location} lights
+switch on {room D|location} lights
 switch on {all|all} the lights
 turn on lights
 please turn on the lights in the {upstairs|location} {hallway|location}
@@ -172,14 +172,14 @@ turn on {all|all} the lights
 let's have some light in here
 switch on lights in {all|all} the rooms
 lights
-{forth room|location} lights up
+{room D|location} lights up
 can you turn on the {porch|location} light
 turn on the {hallway|location} light
 turn the lights on
-{first room|location} light on
+{room A|location} light on
 lights on in {master bedroom|location}
 illuminate {dining room|location}
 lights
 turn on the {basement|location} light
 turn on the lights
-turn on the lights in the {forth room|location} and the {third room|location}
+turn on the lights in the {room D|location} and the {room C|location}

@@ -1559,15 +1559,15 @@ the {entryway|location} {dishwasher|appliance}
 the {guest bathroom|location} {television|appliance}
 the {bathroom|location} {stereo|appliance}
 the {kids bedroom|location} {security system|appliance}
-{third room|location}
-{first room|location}
-{second room|location}
-{forth room|location}
-the meeting {third room|location}
-the meeting {first room|location}
-the meeting {second room|location}
-the meeting {forth room|location}
-meeting {third room|location}
-meeting {first room|location}
-meeting {second room|location}
-meeting {forth room|location}
+{room C|location}
+{room A|location}
+{room B|location}
+{room D|location}
+the meeting {room C|location}
+the meeting {room A|location}
+the meeting {room B|location}
+the meeting {room D|location}
+meeting {room C|location}
+meeting {room A|location}
+meeting {room B|location}
+meeting {room D|location}

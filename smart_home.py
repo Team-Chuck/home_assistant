@@ -5,12 +5,12 @@ the home assistant blueprint application
 from mindmeld.ser import get_candidates_for_text
 
 from .root import app
-from chuck_core import se_handler
+from chuck_core import se_handler, mm_handler
 
 
 DEFAULT_THERMOSTAT_TEMPERATURE = 26
-DEFAULT_THERMOSTAT_CHANGE = 1
-DEFAULT_THERMOSTAT_LOCATION = 'room 1'
+DEFAULT_THERMOSTAT_CHANGE = 2
+DEFAULT_THERMOSTAT_LOCATION = 'room a'
 
 DEFAULT_HOUSE_LOCATION = None
 
@@ -40,11 +40,11 @@ def specify_location(request, responder):
                 color = _get_color(request) or request.frame.get('desired_color')
                 reply = _handle_lights_reply(selected_all, selected_location, responder,
                                              desired_state="on", color=color)
-                se_handler.lights_control('test', 1)
+                se_handler.lights_control(selected_location.lower(), 1)
             elif request.frame['desired_action'] == 'Turn Off Lights':
                 reply = _handle_lights_reply(selected_all, selected_location, responder,
                                              desired_state="off")
-                se_handler.lights_control('test', 0)
+                se_handler.lights_control(selected_location.lower(), 0)
             elif request.frame['desired_action'] == 'Check Lights':
                 reply = _handle_check_lights_reply(selected_location, responder)
             elif request.frame['desired_action'] == 'Turn On Appliance':
@@ -160,7 +160,7 @@ def set_thermostat(request, responder):
     thermostat_temperature_dict[selected_location] = selected_temperature
     reply = _handle_thermostat_change_reply(selected_location,
                                             desired_temperature=selected_temperature)
-    se_handler.thermostat_control('test', int(selected_temperature))
+    se_handler.thermostat_control(selected_location.lower(), int(selected_temperature))
     responder.reply(reply)
     responder.sleep()
 
@@ -176,13 +176,22 @@ def change_thermostat(request, responder):
     selected_location = _get_thermostat_location(request)
     selected_temperature_change = _get_temperature_change(request)
 
-    new_temp = _modify_thermostat(selected_location, selected_temperature_change, request,
-                                  responder, desired_direction)
+    cur_temperature = se_handler.retrieve_current_thermostat(selected_location or DEFAULT_THERMOSTAT_LOCATION)
+    cur_temperature = int(cur_temperature)
+
+    # new_temp = _modify_thermostat(selected_location, selected_temperature_change, request,
+    #                               responder, desired_direction)
+    if request.intent == 'turn_up_thermostat':
+        new_temp = cur_temperature + DEFAULT_THERMOSTAT_CHANGE
+        mm_handler.increase_temperature(selected_location or DEFAULT_THERMOSTAT_LOCATION)
+    else:
+        new_temp = cur_temperature - DEFAULT_THERMOSTAT_CHANGE
+        mm_handler.decrease_temperature(selected_location or DEFAULT_THERMOSTAT_LOCATION)
 
     reply = _handle_thermostat_change_reply(selected_location, desired_temperature=new_temp)
-    se_handler.thermostat_control('test', int(new_temp))
+    se_handler.thermostat_control(selected_location.lower(), int(new_temp))
     responder.reply(reply)
-    responder.sleeep()
+    responder.sleep()
 
 
 @app.handle(intent='turn_off_thermostat')
@@ -253,7 +262,7 @@ def _handle_lights(request, responder, desired_state, desired_action):
             selected_all, selected_location, responder, desired_state=desired_state, color=color)
 
         desired_state_bool = 0 if desired_state == 'off' else 1
-        se_handler.lights_control('test', desired_state_bool)
+        se_handler.lights_control(selected_location.lower(), desired_state_bool)
         responder.reply(reply)
         responder.sleep()
     else:
@@ -392,7 +401,7 @@ def _handle_appliance_reply(selected_all, selected_location, selected_appliance,
 def _handle_thermostat_change_reply(selected_location, desired_temperature=None,
                                     desired_state=None):
     if desired_temperature:
-        reply = "The thermostat temperature in the {location} is now {temp} degrees F.".format(
+        reply = "The thermostat temperature in the {location} is now {temp} degrees C.".format(
             location=selected_location, temp=desired_temperature)
     elif desired_state:
         reply = "Ok. The thermostat in the {location} has been turned {state}.".format(
